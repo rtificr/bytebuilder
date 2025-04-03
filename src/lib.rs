@@ -2,9 +2,9 @@ use builder::ByteBuilder;
 use reader::ByteReader;
 use traits::BytesTrait;
 
-mod builder;
-mod reader;
-mod traits;
+pub mod builder;
+pub mod reader;
+pub mod traits;
 
 #[cfg(test)]
 mod tests {
@@ -77,7 +77,7 @@ mod tests {
 }
 
 #[derive(Debug, PartialEq)]
-pub struct S {
+struct S {
     pub str: String,
     pub val: i32,
 }
