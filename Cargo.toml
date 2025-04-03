@@ -2,3 +2,5 @@
 name = "bytebuilder"
 version = "0.1.0"
 edition = "2021"
+description = "A simple byte serializer/deserializer"
+license = "MIT OR Apache-2.0"
