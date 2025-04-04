@@ -1,4 +1,4 @@
-use crate::traits::BytesTrait;
+use crate::traits::Byteable;
 
 pub struct ByteReader<'a> {
     pub bytes: &'a [u8],
@@ -234,7 +234,7 @@ impl<'a> ByteReader<'a> {
         self.read_bytes(len)
     }
 
-    pub fn read<T: BytesTrait>(&mut self) -> Option<T> {
+    pub fn read<T: Byteable>(&mut self) -> Option<T> {
         let remaining = &self.bytes[self.pos..];
         let result = T::from_bytes(remaining)?;
 

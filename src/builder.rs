@@ -1,4 +1,4 @@
-use crate::traits::BytesTrait;
+use crate::traits::Byteable;
 
 pub struct ByteBuilder {
     pub bytes: Vec<u8>,
@@ -76,7 +76,7 @@ impl ByteBuilder {
         self.bytes.extend_from_slice(value);
     }
 
-    pub fn push<T: BytesTrait>(&mut self, value: T) {
+    pub fn push<T: Byteable>(&mut self, value: T) {
         self.bytes.extend_from_slice(value.to_bytes().as_slice());
     }
     
@@ -166,7 +166,7 @@ impl ByteBuilder {
         self.push_len_prefixed_bytes(value);
         self
     }
-    pub fn with<T: BytesTrait>(&mut self, value: T) -> &mut Self {
+    pub fn with<T: Byteable>(&mut self, value: T) -> &mut Self {
         self.push(value);
         self
     }

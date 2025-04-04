@@ -1,6 +1,6 @@
 use builder::ByteBuilder;
 use reader::ByteReader;
-use traits::BytesTrait;
+use traits::Byteable;
 
 pub mod builder;
 pub mod reader;
@@ -82,7 +82,7 @@ struct S {
     pub val: i32,
 }
 
-impl BytesTrait for S {
+impl Byteable for S {
     fn to_bytes(&self) -> Vec<u8> {
         let mut b = ByteBuilder::new();
         b.push_len_prefixed_str(&self.str);
